@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-     this.configService.getConfig().subscribe(json => this.users = json["users"]);
+     this.configService.getConfig().then(data => this.users = data);
+
   }
 
 }

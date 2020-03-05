@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { fromFetch } from 'rxjs/fetch';
 import { switchMap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 
 @Injectable()
 export class ConfigService {
@@ -12,21 +10,19 @@ export class ConfigService {
 
   getConfig() {
 
-    const data$ = fetch(this.configUrl).then(response => response.json());
+    const data$ = fetch(this.configUrl).then(response => {
 
-    //return this.http.get(this.configUrl);
+        if (response.status !=200) {
+            return null;
+        }  else {
+           return response.json();
+        }
+    },
+    failResponse => {
+       return null;
+    });
 
-    console.log(data$);
-
-    //let result = Promise.all(data$)
-    
     return data$;
-
-    //data$.subscribe({
-      //next: result => console.log(result),
-      //complete: () => console.log('done')
-    //})
-
 
   }
 

@@ -5,7 +5,7 @@ import {User} from './user';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   providers: [ConfigService]
 })
 export class AppComponent implements OnInit {
@@ -18,6 +18,12 @@ export class AppComponent implements OnInit {
 
      this.configService.getConfig().then(data => this.users = data);
 
+  }
+
+  addUser() {
+      
+      this.users.push(new User());
+      
   }
 
 }

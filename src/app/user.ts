@@ -1,13 +1,18 @@
+export class Geo {
+    lat: string;
+    lng: string;
+}
+
 export class Address {
     street: string;
     suite: string;
     city: string;
     zipcode: string;
-}
+    geo: Geo;
 
-export class Geo {
-    lat: string;
-    lng: string;
+    constructor() {
+       this.geo = new Geo;
+    }
 }
 
 export class Company {
@@ -22,8 +27,15 @@ export class User {
     username: string;
     email: string;
     address: Address;
-    geo: Geo;
     phone: string;
     website: string;
     company: Company;
+
+    constructor() {
+        this.name = "Another user";
+        this.username = "";
+        this.email = "";
+        this.address = new Address;
+        this.company = new Company;
+    }
 }

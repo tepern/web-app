@@ -1,6 +1,35 @@
-<ul>
-  <li *ngFor="let user of users">
-     <p>Имя пользователя: {{user.name}}</p>
-  </li>  
-</ul>
+<section>
+  <div class="content-table">
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Company</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address.street}},<br> {{user.address.suite}},<br> {{user.address.city}},<br> {{user.address.zipcode}},<br>
+            geo: {{user.address.geo.lat}}, {{user.address.geo.lng}}
+        </td>
+        <td>{{user.phone}}</td>
+        <td>{{user.website}}</td>
+        <td>{{user.company.name}}<br>{{user.company.catchPhrase}}<br>{{user.company.bs}}</td>
+      </tr>  
+    </table>
+
+
+    <div class="button">
+        <button class="btn btn_add" (click)="addUser()">Добавить</button>
+    </div>
+  </div> 
+</section>
+
 

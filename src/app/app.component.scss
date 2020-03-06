@@ -9,4 +9,8 @@ td {
     margin-left: 1195px;
     margin-top: 20px;
     padding: 5px 10px;
+
+    @media (max-width: 1200px) {
+       margin-left: 0;
+    }
 }
